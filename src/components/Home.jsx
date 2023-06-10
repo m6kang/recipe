@@ -34,11 +34,26 @@ function Home() {
     return (
     <div>
         {postLists.map((post) => {
+            var count = 0;
             return (
-                <div>
-                    <HashLink smooth to={"/recipe#" + post.postId}>
-                        Link to Hash Fragment
-                    </HashLink>;
+                <div className="homePostDiv">
+                    <HashLink className="homeLink" smooth to={"/recipe#" + post.postId}>
+                        <div className="homePost">
+                            <div className="homeHeader">
+                                <h1>{post.title}</h1>
+                            </div>
+                            <div className="homeImage">
+                            {// eslint-disable-next-line
+                            imageList.map((url) => {
+                                if (url.includes(post.postId) && count === 0) {
+                                    count++;
+                                // eslint-disable-next-line
+                                return <img src={url}></img>
+                                }
+                            })}
+                            </div>
+                        </div>
+                    </HashLink>
                 </div>
             );
         })}
