@@ -31,31 +31,34 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    function Image(props) {
+        if (props.num === 0) {
+            return <img src="https://firebasestorage.googleapis.com/v0/b/recipe-17fe2.appspot.com/o/images%2Frecipe-book.png?alt=media&token=f6fcf451-ed67-40cd-b0c2-2f808c276ddc"></img>;
+        }
+    }
+
     return (
-    <div>
+    <div className="homePostDiv">
         {postLists.map((post) => {
             var count = 0;
             return (
-                <div className="homePostDiv">
-                    <HashLink className="homeLink" smooth to={"/recipe#" + post.postId}>
-                        <div className="homePost">
-                            <div className="homeHeader">
-                                <h1>{post.title}</h1>
-                            </div>
-                            <div className="homeImage">
-                            {// eslint-disable-next-line
-                            imageList.map((url) => {
+                <HashLink className="homeLink" smooth to={"/recipe#" + post.postId}>
+                    <div className="homePost">
+                        <div className="homeHeader">
+                            <h1>{post.title}</h1>
+                        </div>
+                        <div className="homeImage">
+                            {imageList.map((url) => {
                                 if (url.includes(post.postId) && count === 0) {
                                     count++;
-                                // eslint-disable-next-line
-                                return <img src={url}></img>
+                                    return <img src={url} id="post_img"></img>
                                 }
                             })}
-                            </div>
+                            <Image num={count} />
                         </div>
-                    </HashLink>
-                </div>
-            );
+                    </div>
+                </HashLink>
+            )
         })}
     </div>
 )};

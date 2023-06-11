@@ -58,7 +58,8 @@ body {
 
 .homePostDiv {
     display: flex;
-    justify-content: space-evenly;
+    justify-content:  space-around;
+    flex-wrap: wrap;
 }
 
 .homeLink {
@@ -67,6 +68,13 @@ body {
     border-radius: 25px;
     border: 2px solid black;
     padding: 20px;
+    margin: auto;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-decoration: none;
+    color: black;
 }
 
 .homePost {
@@ -114,6 +122,83 @@ body {
     border-radius: 4px;
     max-width: 50%;
     max-height: 50%;
+}
+
+.loginPage {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: auto;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    width: 40%;
+    align-items: center;
+    position: relative;
+    display: grid;
+    box-shadow: 0px 10px 15px rgb(0 0 0 / 20%);
+}
+
+.signUp {
+    display: none;
+}
+
+.signUp h3 {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.signUp p {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.signIn {
+    display: grid;
+}
+
+.signIn h3 {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.authEmail {
+    height: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.authPass {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.authBtn {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.createBtn {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.googleLogIn {
+    height: 2rem;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.signUp p {
+    color: rgb(77, 77, 77);
+    font-size: 0.6rem;
+    margin-bottom: 3%;
 }
 
 ::-webkit-scrollbar {

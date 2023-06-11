@@ -4,9 +4,9 @@ import { auth, provider } from "../firebase-config";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-
 function LogIn({ setIsAuth }) {
     let navigate = useNavigate();
+    var valid = "True";
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
@@ -34,21 +34,50 @@ function LogIn({ setIsAuth }) {
 
     const signUp = (e) => {
         e.preventDefault();
-        createUserWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
-        .then((userCredential) => {
-            signInWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
-            console.log(userCredential.user)
-            alert("Signed Up")
-            localStorage.setItem("isAuth", true);
-            setIsAuth(true);
-            navigate("/");
-        })
-        .catch((error) => {
-            console.log(error.message)
-            alert(error.code)
-        })
+        checkPassword(passwordSignUp);
+        if (valid === "True") {
+            createUserWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
+            .then((userCredential) => {
+                signInWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
+                console.log(userCredential.user)
+                alert("Signed Up")
+                localStorage.setItem("isAuth", true);
+                setIsAuth(true);
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(error.message)
+                alert(error.code)
+            })
+        } else {
+            navigate("/login");
+            alert("password not valid")
+        }
     }
 
+    function checkPassword(pass) {
+        if (pass.length < 8) {
+            valid = "False";
+            alert("short pass");
+        } else if (!(/\d/.test(pass))) {
+            valid = "False";
+            alert("no number");
+        } else if (!(/[A-Z]/.test(pass))) {
+            valid = "False";
+            alert("no capital")
+        } else if (!(/[a-z]/.test(pass))) {
+            valid = "False";
+            alert("no lower")
+        } else {
+            valid = "True";
+        }
+    }
+
+    function changeDisplay() {
+        document.getElementById("sign-up").style.display = "grid";
+        document.getElementById("sign-in").style.display = "none";
+        document.getElementById("create-account").style.display = "none";
+    }
 
     const [emailSignIn, setEmailSignIn] = useState('');
     const [passwordSignIn, setPasswordSignIn] = useState('');
@@ -57,40 +86,45 @@ function LogIn({ setIsAuth }) {
 
     return (
         <div className="loginPage">
-            <p>Sign In With Google to Continue</p>
-            <button className="login-with-google-btn" onClick={signInWithGoogle}>
-                Sign in with Google
-            </button>
-            <form onSubmit={signIn}>
+            <form id="sign-in" className="signIn" onSubmit={signIn}>
+                <h3>Email</h3>
                 <input 
+                    className="authEmail"
                     type="email" 
-                    placeholder="Enter your email"
                     value={emailSignIn}
                     onChange={(e) => setEmailSignIn(e.target.value)}
                 ></input>
+                <h3>Password</h3>
                 <input 
+                    className="authPass"
                     type="password" 
-                    placeholder="Enter your password"
                     value={passwordSignIn}
                     onChange={(e) => setPasswordSignIn(e.target.value)}
                 ></input>
-                <button type="submit">Sign In</button>
+                <button className="authBtn" type="submit">Sign In</button>
             </form>
-            <form onSubmit={signUp}>
+            <button className="createBtn" id="create-account" onClick={changeDisplay}>Create Account</button>
+            <form id="sign-up" className="signUp" onSubmit={signUp}>
+                <h3>Email</h3>
                 <input 
+                    className="authEmail"
                     type="email" 
-                    placeholder="Enter your email"
                     value={emailSignUp}
                     onChange={(e) => setEmailSignUp(e.target.value)}
                 ></input>
+                <h3>Password</h3>
                 <input 
-                    type="password" 
-                    placeholder="Enter your password"
+                    className="authPass"
+                    type="password"
                     value={passwordSignUp}
                     onChange={(e) => setPasswordSignUp(e.target.value)}
                 ></input>
-                <button type="submit">Sign Up</button>
+                <p>Passwords must contain at least eight characters, including at least one uppercase letter, one lowercase letter, and one number.</p>
+                <button className="authBtn" type="submit">Sign Up</button>
             </form>
+            <button className="googleLogIn" onClick={signInWithGoogle}>
+                Sign in with Google
+            </button>
         </div>
     );
 }
