@@ -56,6 +56,9 @@ function Home() {
                             })}
                             <Image num={count} />
                         </div>
+                        <div className="homeAuthor">
+                            <h3>By: {post.author.name}</h3>
+                        </div>
                     </div>
                 </HashLink>
             )

@@ -91,6 +91,11 @@ body {
     text-align: center;
 }
 
+.homeAuthor {
+    margin-top: 5%;
+    text-align: center;
+}
+
 .homePost img {
     border-radius: 4px;
     max-width: 50%;
