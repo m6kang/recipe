@@ -33,7 +33,7 @@ function Home() {
 
     function Image(props) {
         if (props.num === 0) {
-            return <img src="https://firebasestorage.googleapis.com/v0/b/recipe-17fe2.appspot.com/o/images%2Frecipe-book.png?alt=media&token=f6fcf451-ed67-40cd-b0c2-2f808c276ddc"></img>;
+            return <img src="https://firebasestorage.googleapis.com/v0/b/recipe-17fe2.appspot.com/o/images%2Frecipe-book.png?alt=media&token=f6fcf451-ed67-40cd-b0c2-2f808c276ddc" alt=""></img>;
         }
     }
 
@@ -51,8 +51,9 @@ function Home() {
                             {imageList.map((url) => {
                                 if (url.includes(post.postId) && count === 0) {
                                     count++;
-                                    return <img src={url} id="post_img"></img>
+                                    return <img src={url} id="post_img" alt=""></img>
                                 }
+                                return <></>
                             })}
                             <Image num={count} />
                         </div>

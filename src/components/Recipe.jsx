@@ -39,8 +39,8 @@ function Recipe({ isAuth }) {
         {postLists.map((post) => {
             var count = 0;
             return (
-            <section id={post.postId}>
                 <div className="post">
+                    <section id={post.postId}>
                     <div className="postHeader">
                         <h1>{post.title}</h1>
                     </div>
@@ -77,8 +77,9 @@ function Recipe({ isAuth }) {
                         <h3>By:</h3>
                         <h3>{post.author.name}</h3>
                     </div>
+                    </section>
                 </div>
-            </section>
+                
             );
         })}
     </div>
