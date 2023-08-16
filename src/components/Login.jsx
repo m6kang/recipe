@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { auth, provider } from "../firebase-config";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, getAuth, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 function LogIn({ setIsAuth }) {
@@ -39,6 +39,13 @@ function LogIn({ setIsAuth }) {
             createUserWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
             .then((userCredential) => {
                 signInWithEmailAndPassword(auth, emailSignUp, passwordSignUp)
+                const currentAuth = getAuth();
+                const emailUser = emailSignUp.substring(0, emailSignUp.indexOf("@"));
+                updateProfile(currentAuth.currentUser, {
+                displayName: emailUser, photoURL: ""
+                }).then(() => {
+                }).catch((error) => {
+                });
                 console.log(userCredential.user)
                 alert("Signed Up")
                 localStorage.setItem("isAuth", true);
@@ -58,16 +65,12 @@ function LogIn({ setIsAuth }) {
     function checkPassword(pass) {
         if (pass.length < 8) {
             valid = "False";
-            alert("short pass");
         } else if (!(/\d/.test(pass))) {
             valid = "False";
-            alert("no number");
         } else if (!(/[A-Z]/.test(pass))) {
             valid = "False";
-            alert("no capital")
         } else if (!(/[a-z]/.test(pass))) {
             valid = "False";
-            alert("no lower")
         } else {
             valid = "True";
         }
