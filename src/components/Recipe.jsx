@@ -34,7 +34,7 @@ function Recipe({ isAuth }) {
     return (
     <div>
         <div>
-            {isAuth ? <Link to="/recipepost" className="site-name">M&M Recipe Book</Link> : <></>}
+            {isAuth ? <Link to="/recipepost" className="site-name"><button type="button" className="postBtn">Create a post</button></Link> : <></>}
         </div>
         {postLists.map((post) => {
             var count = 0;
@@ -56,7 +56,7 @@ function Recipe({ isAuth }) {
                     </div>
                     <br/>
                     <div className="postIngredient">
-                        <h2>Ingredients:</h2>
+                        <h3>Ingredients:</h3>
                         <ul>
                             {post.postIngredient.map((ingredient) => {
                                 return <li>{ingredient}</li>
@@ -65,7 +65,7 @@ function Recipe({ isAuth }) {
                     </div>
                     <br/>
                     <div className="postDirection">
-                        <h2>Directions:</h2>
+                        <h3>Directions:</h3>
                         <ul>
                         {post.postDirection.map((direction) => {
                             return <li>{direction}</li>
@@ -74,8 +74,7 @@ function Recipe({ isAuth }) {
                     </div>
                     <br/>
                     <div className="postAuthor">
-                        <h3>By:</h3>
-                        <h3>{post.author.name}</h3>
+                        <h3>By: {post.author.name}</h3>
                     </div>
                     </section>
                 </div>

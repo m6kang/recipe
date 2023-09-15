@@ -45,7 +45,7 @@ function Home() {
                 <HashLink className="homeLink" smooth to={"/recipe#" + post.postId}>
                     <div className="homePost">
                         <div className="homeHeader">
-                            <h1>{post.title}</h1>
+                            <h2>{post.title}</h2>
                         </div>
                         <div className="homeImage">
                             {imageList.map((url) => {

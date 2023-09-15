@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f5e1da;
+    background-color: #fff1e0;
 }
 
 .site-name {
@@ -22,7 +22,7 @@ body {
     margin: 0 1rem 0 0;
     border-radius: 20px;
     margin: 0.5rem;
-    background-color: #f5e1da; 
+    background-color: #fcead6; 
     color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(3px);
     box-shadow: 0px 10px 15px rgb(0 0 0 / 20%);
@@ -55,11 +55,11 @@ body {
 }
 
 .nav li.active {
-    background-color: #bd9b8f;
+    background-color: #d1c1ae;
 }
 
 .nav li:hover {
-    background-color: #e2c1b4;
+    background-color: #e7d8c7;
 }
 
 .homePostDiv {
@@ -72,7 +72,6 @@ body {
     height: 20rem;
     width: 20rem;
     border-radius: 25px;
-    border: 1px solid black;
     padding: 20px;
     margin: auto;
     margin-right: 3%;
@@ -81,6 +80,7 @@ body {
     margin-bottom: 3%;
     text-decoration: none;
     color: black;
+    background-color: #fcead6; 
     backdrop-filter: blur(3px);
     box-shadow: 0px 10px 15px rgb(0 0 0 / 20%);
     box-sizing: border-box;
@@ -118,7 +118,7 @@ body {
 
 .post {
     border-radius: 25px;
-    border: 1px solid black;
+    background-color: #fcead6; 
     padding: 20px;
     margin: auto;
     margin-top: 5%;
@@ -154,7 +154,7 @@ body {
 
 .loginPage {
     border-radius: 25px;
-    border: 1px solid black;
+    background-color: #fcead6; 
     padding: 20px;
     margin: auto;
     margin-top: 8rem;
@@ -190,37 +190,43 @@ body {
 }
 
 .authEmail {
-    height: 2rem;
-    margin-bottom: 1rem;
+    height: 1.8rem;
+    margin-bottom: 0.5rem;
     margin-right: 8%;
     margin-left: 8%;
 }
 
 .authPass {
-    height: 2rem;
-    margin-bottom: 0.5rem;
+    height: 1.8rem;
+    margin-bottom: 1rem;
     margin-right: 8%;
     margin-left: 8%;
 }
 
 .authBtn {
-    height: 2rem;
+    height: 1.8rem;
     margin-bottom: 0.5rem;
     margin-right: 8%;
     margin-left: 8%;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .createBtn {
-    height: 2rem;
+    height: 1.8rem;
     margin-bottom: 0.5rem;
     margin-right: 8%;
     margin-left: 8%;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .googleLogIn {
-    height: 2rem;
+    height: 1.8rem;
     margin-right: 8%;
     margin-left: 8%;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .signUp p {
@@ -229,20 +235,62 @@ body {
     margin-bottom: 3%;
 }
 
+.postBtn {
+    height: 1.8rem;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.rpContainer {
+    border-radius: 25px;
+    background-color: #fcead6; 
+    padding: 20px;
+    margin: auto;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    width: clamp(300px, 40%, 600px);
+    align-items: center;
+    position: relative;
+    display: grid;
+    box-shadow: 0px 10px 15px rgb(0 0 0 / 20%);
+}
+
+.inputTitle {
+    margin-top: 0.5rem;
+}
+
+.inputIngredient {
+    margin-top: 0.5rem;
+}
+
+.inputDirection {
+    margin-top: 0.5rem;
+}
+
+.inputImage {
+    margin-top: 0.5rem;
+}
+
+.postSubmitBtn {
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-top: 0.5rem;
+}
+
 ::-webkit-scrollbar {
     width: 1em;
 }
 
 ::-webkit-scrollbar-track {
-    background: #ebc9bd;
+    background: #ece2d6;
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb {
-    background:#bd9b8f;
+    background:#d3c6b6;
     border-radius: 100vw;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #e2c1b4;
+    background: #e2d8cc;
 }
