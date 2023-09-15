@@ -248,7 +248,7 @@ body {
     margin: auto;
     margin-top: 8rem;
     margin-bottom: 3rem;
-    width: clamp(300px, 40%, 600px);
+    width: clamp(300px, 40%, 300px);
     align-items: center;
     position: relative;
     display: grid;
@@ -272,8 +272,7 @@ body {
 }
 
 .postSubmitBtn {
-    margin-right: 8%;
-    margin-left: 8%;
+    width: clamp(250px, 40%, 600px);
     margin-top: 0.5rem;
 }
 

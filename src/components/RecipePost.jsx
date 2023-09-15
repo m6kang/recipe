@@ -68,15 +68,15 @@ function RecipePost({ isAuth }) {
     return (
     <div className="recipePostPage"> 
         <div className="rpContainer">
-            <h2>Create A Post</h2>
+            <h3>Create A Post</h3>
             <div className="inputTitle">
-                <label> Title: </label>
+                <label>Title: </label>
                 <input placeholder="Title..." onChange={(event) => {
                     setTitle(event.target.value);
                 }}/>
             </div>
             <div className="inputIngredient">
-                <label> Ingredients:</label>
+                <label>Ingredients: </label>
                 {postIngredient.map((data, i) => {
                     return (
                         <div>
@@ -92,7 +92,7 @@ function RecipePost({ isAuth }) {
                 }}>Add</button>
             </div>
             <div className="inputDirection">
-                <label>Directions:</label>
+                <label>Directions: </label>
                 {postDirection.map((data, i) => {
                     return (
                         <div>
@@ -108,7 +108,7 @@ function RecipePost({ isAuth }) {
                 }}>Add</button>
             </div>
             <div className="inputImage">
-                <label>Image:</label>
+                <label>Image: </label>
                 <input type="file" onChange={(event) => {
                     setImageUpload(event.target.files[0]);
                 }}/>
